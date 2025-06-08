@@ -1,0 +1,160 @@
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f5f7fa;
+  color: #333;
+}
+
+/* Menu */
+.menu-cadre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #388E3C;
+  padding: 15px 25px;
+  border-radius: 0 0 20px 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  box-shadow: 8px 8px 0 #FBC02D;
+  z-index: 1000;
+}
+
+.menu-cadre img {
+  height: 60px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.menu-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-nav li {
+  margin: 0 15px;
+}
+
+.menu-nav a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-nav a:hover {
+  background-color: #2e7d32;
+}
+
+/* Responsive DUmznu*/
+@media (max-width: 768px) {
+  .menu-cadre {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .menu-nav ul {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .menu-nav li {
+    margin: 8px 0;
+  }
+}
+
+/* Section principale */
+section {
+  text-align: center;
+  padding-top: 120px;
+}
+
+section h1 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 8px;
+}
+
+section p {
+  font-size: clamp(1rem, 2vw, 1.3rem);
+  color: #555;
+}
+
+/* DEBUT Grille */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 15px;
+}
+
+.bloc {
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  aspect-ratio: 1 / 1;
+}
+
+.bloc:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+.bloc img {
+  width: 100%;
+  height: 70%;
+  object-fit: cover;
+  border-bottom: 2px solid #007BFF;
+}
+
+.titre-bloc {
+  padding: 20px 10px;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 700;
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* FIN  Grille */
+/*FOOTER*/
+.footer {
+  text-align:center; padding:2rem 0; color:#777;
+  background:#e8f5e9; margin-top:4rem;
+}
+/*DEBUT Couleurs par catégorie */
+.communication-exercices img { border-color: #28a745; }
+.communication-tutos img { border-color: #17a2b8; }
+.communication-compterendu img { border-color: #ffc107; }
+.communication-notesinfo img { border-color: #fd7e14; }
+.communication-annonces img { border-color: #dc3545; }
+/* Fin des Couleurs par catégorie */
+
+/* DEBUT Responsive pour lespetit écran */
+@media (max-width: 480px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+/* FIN Responsive pour lespetit écran */

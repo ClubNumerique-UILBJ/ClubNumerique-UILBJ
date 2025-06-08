@@ -1,0 +1,225 @@
+body {
+  font-family: 'Prompt', sans-serif;
+  background-color: #388E3C;
+  margin: 0;
+  padding-top: 130px;
+  text-align: center;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* L'animation du fond avec le avec logos qui tourne */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 100, 0, 0.4); /* Vert transparent */
+  background-image: url("Images/Logo/logo-club.jpg");
+  background-size: 100px;
+  background-repeat: repeat;
+  animation: rotateBg 120s linear infinite;
+  z-index: -1;
+  opacity: 0.1;
+}
+
+@keyframes rotateBg {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Menu */
+/* Menu */
+.menu-cadre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #388E3C;
+  padding: 15px 25px;
+  border-radius: 0 0 20px 20px;
+  margin: 0 auto;
+  max-width: 1200px;
+  color: white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-weight: bold;
+  box-shadow: 8px 8px 0 #FBC02D;
+  z-index: 1000;
+}
+
+.menu-cadre img {
+  height: 60px;
+  width: auto;
+  border-radius: 10px;
+}
+
+.menu-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu-nav li {
+  margin: 0 15px;
+}
+
+.menu-nav a {
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.menu-nav a:hover {
+  background-color: #2e7d32;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-cadre {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .menu-nav ul {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .menu-nav li {
+    margin: 8px 0;
+  }
+}
+
+h1 {
+  font-size: 2.7em;
+  color: white;
+  margin-bottom: 30px;
+  animation: fadeInDown 1s ease-in-out;
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Organigramme */
+.organigramme {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 80px;
+  position: relative;
+}
+
+.ligne {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+/* Traits verticaux entre niveaux */
+.ligne:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  width: 2px;
+  height: 40px;
+  background-color: #fff;
+  transform: translateX(-50%);
+}
+
+/* Traits horizontaux entre membres */
+.ligne:has(.membre:nth-child(n+2))::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  right: 10%;
+  height: 2px;
+  background-color: #fff;
+  z-index: -1;
+}
+
+/* Cartes membres */
+.membre {
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 180px;
+  padding: 15px;
+  text-align: center;
+  transition: transform 0.4s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.membre:hover {
+  transform: scale(1.08);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+.membre img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.5s ease;
+}
+
+.membre:hover img {
+  transform: scale(1.05);
+}
+
+.poste {
+  margin-top: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #2e7d32;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+.poste:hover {
+  color: #00796B;
+}
+/*FOOTER*/
+.footer {
+  text-align:center; padding:2rem 0; color:#777;
+  background:#e8f5e9; margin-top:4rem;
+}
+/* Responsive */
+@media (max-width: 768px) {
+  .menu-cadre {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .menu-nav ul {
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .menu-nav li {
+    margin: 8px 0;
+  }
+
+  .ligne::before,
+  .ligne::after {
+    display: none;
+  }
+}
